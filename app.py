@@ -5,6 +5,8 @@ import requests
 import time
 
 from flask import Flask
+from flask import Response
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -24,7 +26,7 @@ def home():
                 result += "\"%s\"" % str(value)
                 result += ", "
             result += "\n"
-    return result
+    return Response(result, mimetype='text/csv')
 
 
 if __name__ == '__main__':
